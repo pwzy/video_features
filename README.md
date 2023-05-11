@@ -97,3 +97,23 @@ Please, let me know if you found this repo useful for your projects or papers.
 many other small things).
 - [@borijang](https://github.com/borijang): for solving bugs with file names, I3D checkpoint loading enhancement and code style improvements.
 - [@ohjho](https://github.com/ohjho): added support of 37-layer R(2+1)d favors.
+
+
+## Extract UCF-Crime Features
+获得视频地址
+```bash
+find /home/jing/project/dataset/UCF-Crime-unzip  -name "*mp4" > sample/sample_video_paths.txt 
+```
+进行特征提取
+```python
+python main.py \
+    feature_type=i3d \
+    device="cuda:0" \
+    extraction_fps=30 \
+    stack_size=16 \
+    step_size=16 \
+    file_with_video_paths=./sample/sample_video_paths.txt \
+    on_extraction=save_numpy \
+    output_path="./output"
+```
+
