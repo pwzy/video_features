@@ -102,6 +102,7 @@ many other small things).
 ## Extract UCF-Crime Features
 获得视频地址：
 ```bash
+rm sample/sample_video_paths.txt
 find /home/jing/project/dataset/UCF-Crime-unzip  -name "*mp4" > sample/sample_video_paths.txt 
 ```
 进行特征提取：
