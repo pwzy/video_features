@@ -100,11 +100,11 @@ many other small things).
 
 
 ## Extract UCF-Crime Features
-获得视频地址
+获得视频地址：
 ```bash
 find /home/jing/project/dataset/UCF-Crime-unzip  -name "*mp4" > sample/sample_video_paths.txt 
 ```
-进行特征提取
+进行特征提取：
 ```python
 python main.py \
     feature_type=i3d \
@@ -116,4 +116,4 @@ python main.py \
     on_extraction=save_numpy \
     output_path="./output"
 ```
-
+注意：ShanghaiTech dataset数据集的帧率为24，进行特征提取时要修改帧率参数。
