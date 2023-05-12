@@ -118,9 +118,9 @@ python main.py \
 ```
 注意：
 1. 参数不可指定extraction_fps，因为视频进行重新帧率编码后可能会增加多余的帧。例如14帧的视频进行重新编码后帧数变为21。
-2. i3d提取过程中至少需要17帧才能生成特征（因为需要多一帧计算光流）
+2. i3d提取过程中至少需要17帧才能生成特征（因为需要多一帧计算光流）。
 3. 提取过程中可进行文件拆分，拆分后文件为split_file_aa, split_file_ab,...
 ```bash
 split -l 1000 example.txt split_file_
 ```
-4. ShanghaiTech dataset数据集的帧率为24，进行特征提取时要修改帧率参数。
+4. ShanghaiTech dataset数据集的帧率为24，但在进行特征提取时不要修改帧率参数，可能导致视频重新编码后视频总帧数增加。
