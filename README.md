@@ -117,4 +117,9 @@ python main.py \
     on_extraction=save_numpy \
     output_path="./output"
 ```
-注意：ShanghaiTech dataset数据集的帧率为24，进行特征提取时要修改帧率参数。
+注意：
+提取过程中可进行文件拆分，拆分后文件为split_file_aa, split_file_ab,...
+```bash
+split -l 1000 example.txt split_file_
+```
+ShanghaiTech dataset数据集的帧率为24，进行特征提取时要修改帧率参数。
