@@ -110,7 +110,6 @@ find /home/jing/project/dataset/UCF-Crime-unzip  -name "*mp4" > sample/sample_vi
 python main.py \
     feature_type=i3d \
     device="cuda:0" \
-    extraction_fps=30 \
     stack_size=16 \
     step_size=16 \
     file_with_video_paths=./sample/sample_video_paths.txt \
@@ -118,8 +117,10 @@ python main.py \
     output_path="./output"
 ```
 注意：
-提取过程中可进行文件拆分，拆分后文件为split_file_aa, split_file_ab,...
+1. 参数不可指定extraction_fps，因为视频进行重新帧率编码后可能会增加多余的帧。例如14帧的视频进行重新编码后帧数变为21。
+2. i3d提取过程中至少需要17帧才能生成特征（因为需要多一帧计算光流）
+3. 提取过程中可进行文件拆分，拆分后文件为split_file_aa, split_file_ab,...
 ```bash
 split -l 1000 example.txt split_file_
 ```
-ShanghaiTech dataset数据集的帧率为24，进行特征提取时要修改帧率参数。
+4. ShanghaiTech dataset数据集的帧率为24，进行特征提取时要修改帧率参数。
